@@ -6,6 +6,7 @@
 		xmlns:v="using:AvaloniaApplication1.Views"
         x:Class="AvaloniaApplication1.Views.MainWindowView"
         Icon="/Assets/avalonia-logo.ico"
-        Title="AvaloniaApplication1">
-	<v:MainWindowView DataContext="{Binding RibbonTabs}"/>
+        Title="AvaloniaApplication1"
+		Content="{Binding RibbonTabs}">
+	
 </Window>

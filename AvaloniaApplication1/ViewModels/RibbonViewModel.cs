@@ -10,12 +10,25 @@ namespace AvaloniaApplication1.ViewModels
 	public class RibbonViewModel : ViewModelBase
     {
         public ObservableCollection<HeaderedItemsControl> RibbonTabs { get; set; }
-
+        //public ObservableCollection<TabItem> RibbonTabs { get; set; }
         public ObservableCollection<TabItem> TabItems1 { get; set; }
         public ObservableCollection<TabItem> TabItems2 { get; set; }
         public ObservableCollection<TabItem> TabItems3 { get; set; }
         public RibbonViewModel()
         {
+            //RibbonTabs = new ObservableCollection<TabItem>()
+            //{
+            //    new TabItem()
+            //    {
+            //        Header = "1 таб айтем",
+            //        Content = new Button()
+            //    },
+            //    new TabItem()
+            //    {
+            //        Header = "2 таб айтем",
+            //        Content = new Label()
+            //    }
+            //};
             TabItems1 = new ObservableCollection<TabItem>()
             {
                 new TabItem()
