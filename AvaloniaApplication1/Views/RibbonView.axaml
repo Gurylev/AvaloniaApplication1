@@ -1,0 +1,71 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="using:AvaloniaApplication1.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaApplication1.Views.RibbonView">
+	<Design.DataContext>
+		<vm:RibbonViewModel/>
+	</Design.DataContext>
+	<UserControl.Styles>
+		<Style Selector="HeaderedItemsControl">
+			<Setter Property="Height" Value="180"/>
+			<Setter Property="Margin" Value="0,-34,0,0"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="Template">
+				<ControlTemplate TargetType="{x:Type HeaderedItemsControl}">
+					<Grid RowDefinitions="80,100" Width="500" >
+						<Border
+							Background="Red"
+							  Grid.RowSpan="2"
+							  IsHitTestVisible="False"
+							  CornerRadius="{DynamicResource ControlCornerRadius}"
+							  Margin="0,2">
+							<Border.OpacityMask>
+								<LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+									<GradientStop Offset="0.5" Color="#40000000"/>
+									<GradientStop Offset="0.5" Color="#20000000"/>
+								</LinearGradientBrush>
+							</Border.OpacityMask>
+						</Border>
+						<ContentPresenter
+							Grid.Row="0"
+							x:Name="PART_HeaderPresenter"
+							Content="{TemplateBinding Header}"
+							HorizontalContentAlignment="Center"
+							VerticalAlignment="Center"
+							Margin="5,7,5,5"
+							Opacity="0.5"
+							IsHitTestVisible="False"/>
+						<ItemsPresenter
+							x:Name="PART_ItemsPresenter"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Center"
+							Grid.Row="1"
+							Margin="0,2,0,0">
+							<ItemsPresenter.ItemsPanel>
+								<ItemsPanelTemplate>
+									<UniformGrid Rows="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+								</ItemsPanelTemplate>
+							</ItemsPresenter.ItemsPanel>
+						</ItemsPresenter>
+					</Grid>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+	</UserControl.Styles>
+
+	<!--Таб контрол каждый элеменет которого HeaderedItemsControl со своим набором табов-->
+	<TabControl ItemsSource="{Binding RibbonTabs}" >
+
+		<!--<ItemsControl.ItemsPanel>
+			<ItemsPanelTemplate>
+				<UniformGrid Width="2000" Rows="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+			</ItemsPanelTemplate>
+		</ItemsControl.ItemsPanel>-->
+
+
+
+	</TabControl>
+</UserControl>
